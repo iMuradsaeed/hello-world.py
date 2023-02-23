@@ -1,0 +1,27 @@
+def is_prime(num):
+    """
+    Returns True if num is a prime number, False otherwise.
+    """
+    if num <= 1:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+# Generate prime numbers and store them in a list
+primes = []
+for i in range(1, 251):
+    if is_prime(i):
+        primes.append(i)
+
+# Write the results to a file
+with open('results.txt', 'w') as file:
+    for prime in primes:
+        file.write(str(prime) + '\n')
+
+# Print the results to the console
+print('Prime numbers between 1 and 250:')
+for prime in primes:
+    print(prime)
+
